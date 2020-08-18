@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { getUser } from "./api"
+import React from "react"
 import Field from "./Field"
+import { useUser } from "./hooks"
 
 export default function Settings() {
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    console.log(
-      getUser().then((user) => {
-        setUser(user)
-      })
-    )
-  }, [])
+  const user = useUser()
 
   return (
     <div className="py-12">

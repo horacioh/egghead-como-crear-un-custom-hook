@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react"
-import { getUser } from "./api"
+import React from "react"
+import { useUser } from "./hooks"
 
 export default function Topbar() {
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    console.log(
-      getUser().then((user) => {
-        setUser(user)
-      })
-    )
-  }, [])
+  const user = useUser()
 
   const username = user ? `${user.firstName} ${user.lastName}` : "???"
+
   return (
     <div className="flex bg-gray-200 items-center py-4 px-8">
       <span className="flex-1" />
